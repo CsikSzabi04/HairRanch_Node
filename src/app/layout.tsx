@@ -8,7 +8,12 @@ export const metadata: Metadata = {
   description: 'Hair Ranch - Barbershop Kecskemétem - "Ahol minden férfi és nő, legjobb stílusban távozik"',
   verification: {
     google: '161OSjPYsB7qQC_ZA8tR_-FYrCGDYRWYVwxh_gq-1rc'
-  }
+  },
+   icons: {
+    icon: [
+      { url: '/roundd.png', type: 'image/png' },
+    ],
+  },
 }
 
 export default function RootLayout({
@@ -19,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="hu">
       <head>
-        <link id="rel" rel="icon" type="image/png" href="/roundd.png" />
+        <link id="rel" rel="icon" type="image/png" href="roundd.png" />
       </head>
       <body className="bg-[#fef8ee] text-[#3b2f23] font-sans min-h-screen flex flex-col">
         <Navbar />

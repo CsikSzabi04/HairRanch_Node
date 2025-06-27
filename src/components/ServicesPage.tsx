@@ -92,8 +92,6 @@ export default function ServicesPage() {
                 <img
                   src={service.image}
                   alt={service.name}
-                  width={300}
-                  height={208}
                   className="w-full h-52 object-cover"
                 />
                 <div className="p-4 text-center">
