@@ -16,3 +16,17 @@
     flex: 0 0 auto; /* fix szélességű elemek */
   }
 }
+
+@media (max-width:650px) {
+
+  .aaa{margin-top: 10%;}
+
+}
+
+
+@media (max-width:500px) {
+
+  .aaa{margin-top: 15%;}
+
+}
+

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-
+import "./components.css"
 
 const services = [
     {
@@ -46,7 +46,7 @@ export default function ServicesPage() {
             >
                 {/* Banner */}
                 <div className="w-[90%] flex justify-center">
-                    <div style={{ backgroundImage: 'url("/asd.jpg")', backgroundRepeat: "no-repeat", backgroundSize: "cover", marginTop: "8%" }} id="custom-responsive" className="bg-[#2a2118] border-4 border-[#c2a470] shadow-xl px-6 py-4 transform -rotate-2 w-full sm:w-4/5 md:w-3/5 text-center">
+                    <div style={{ backgroundImage: 'url("/asd.jpg")', backgroundRepeat: "no-repeat", backgroundSize: "cover", marginTop: "8%" }} id="custom-responsive" className="aaa bg-[#2a2118] border-4 border-[#c2a470] shadow-xl px-6 py-4 transform -rotate-2 w-full sm:w-4/5 md:w-3/5 text-center">
                         <h2 className="text-2xl sm:text-3xl md:text-5xl text-[#fef8ee] font-bold tracking-wider mb-2 font-serif">
                             Egy kicsit Magamról
                         </h2>
@@ -106,47 +106,6 @@ export default function ServicesPage() {
                                 className="w-[200px] h-[280px] object-cover rounded-md shadow-md"
                                 alt="Berti right"
                             />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Rules */}
-                <div className="overflow-x-auto whitespace-nowrap scrollbar-hide w-[80%]" style={{ marginTop: "1%", marginBottom: "3%" }}>
-                    <div className="flex gap-6 justify-start w-max mx-auto px-2">
-                        <div
-                            style={{
-                                backgroundImage: 'url("/asdasd.jpg")',
-                                backgroundRepeat: "no-repeat",
-                                backgroundSize: "cover",
-                                marginTop: "1%",
-                                marginBottom: "4%",
-                            }}
-                            id="custom-responsive"
-                            className="bg-[#2a2118] border-4 border-[#c2a470] shadow-xl px-6 py-4 transform -rotate-1 min-w-[300px] sm:min-w-[400px] md:min-w-[600px] text-center"
-                        >
-                            <h2
-                                className="text-2xl sm:text-3xl md:text-5xl text-[#fef8ee] font-bold tracking-wider mb-2 font-serif"
-                                style={{ fontSize: "30px", textDecoration: "underline", paddingBottom: "2px" }}
-                            >
-                                Házirend*
-                            </h2>
-
-                            <p
-                                className="text-[#e6d3b3] text-sm md:text-lg font-light"
-                                style={{ letterSpacing: "2px" }}
-                            >
-                                <strong>
-                                    Időpont törlése vagy módosítása díjmentesen törölhető vagy áthelyezhető amennyiben az időpontot megelőző 24 órán belül történik. <br /><br />
-                                    Az aznap lemondott időpont, vagy módosítása esetében a következő alkalomnál az elmaradt szolgáltatás értékének az 50%-a kerül felszámításra. <br /><br />
-                                    Ha nem jelensz meg a beírt időpontban és ezt nem jelzed legalább 24 órával az időpont előtt, <br /> a szolgáltatási árak 100%-a kerül felszámításra. (Abban az esetben is érvényes, ha betegség miatt nem jelensz meg.) <br /><br />
-                                    Ha új vendégként nem jelensz meg a beírt időpontban és ha új időpontot szeretnél foglalni akkor az elmaradt szolgáltatási ár 100%-át meg kell térítened. <br /><br />
-                                    Késés esetén és ha már a szolgáltatásra nincs idő akkor a beírt következő alkalomnál találkozunk. Abban az esetben, <br /> ha miattam történt a csúszás és nem volt szolgáltatás elvégezve akkor a következő alkalomnál a szolgáltatás árából 10% kedvezményt biztosítok. <br /><br />
-                                </strong>
-
-                                <span style={{ fontSize: "20px", textDecoration: "underline", paddingBottom: "2px" }}>Fizetés</span><br /><br />
-                                A szalonban készpénzes fizetésre van lehetőség. Az árak minden esetben az ár változtatás jogát fenntartom. <br /><br />
-                                Köszönöm a megértést!
-                            </p>
                         </div>
                     </div>
                 </div>

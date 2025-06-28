@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
+import "./components.css"
 const services = [
   {
     name: "Férfi hajvágás (rövid)",
@@ -61,7 +61,7 @@ export default function ServicesPage() {
         style={{ backgroundImage: `url(${backgroundImages[currentBg]})` }}
       >
         {/* Banner */}
-        <div className="w-[90%] flex justify-center">
+        <div className="w-[90%] flex justify-center aaa">
           <div 
             style={{ 
               backgroundImage: 'url("/asd.jpg")',  
