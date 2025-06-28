@@ -1,0 +1,18 @@
+/* Alap: nagy kijelzőn wrap */
+.image-scroll-container {
+  flex-wrap: wrap;
+}
+
+/* 940px alatt: ne törjön, legyen x-scroll */
+@media (max-width: 940px) {
+  .image-scroll-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .image-scroll-container > div {
+    flex: 0 0 auto; /* fix szélességű elemek */
+  }
+}
