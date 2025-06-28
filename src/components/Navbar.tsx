@@ -133,6 +133,22 @@ export default function Navbar() {
               >
                 SZOLGÁLTATÁSOK
               </Link>
+               <Link
+                href="/galery"
+                className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{ textDecoration: "none" }}
+              >
+                GALÉRIA
+              </Link>
+               <Link
+                href="/myself"
+                className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{ textDecoration: "none" }}
+              >
+                MAGAMRÓL
+              </Link>
               <Link
                 href="/idopontfoglalas"
                 className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"
