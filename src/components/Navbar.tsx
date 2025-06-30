@@ -113,15 +113,22 @@ export default function Navbar() {
         {/* Mobile Menu - appears when hamburger is clicked (below 900px) */}
         {mobileMenuOpen && (
           <div
-            style={{ marginTop: "8%" }}
-            className="min-[900px]:hidden bg-[#2a2118] border-t border-[#a67c52] rounded-b-md shadow-md"
+            style={{
+              marginTop: "9%",
+              maxHeight: "180px",
+              overflowY: "scroll",
+              scrollbarWidth: "none",         // Firefox
+              msOverflowStyle: "none"         // IE/Edge
+            }}
+            className="min-[900px]:hidden bg-[#2a2118] border-t border-[#a67c52] rounded-b-md shadow-md [&::-webkit-scrollbar]:hidden"
           >
+
             <div className="flex flex-col py-2">
               <Link
                 href="/"
                 className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", padding: "15px 10px", borderBottom: "1px solid #c2a470" }}
               >
                 FŐOLDAL
               </Link>
@@ -129,39 +136,40 @@ export default function Navbar() {
                 href="/szolgaltatasok"
                 className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", padding: "15px 10px", borderBottom: "1px solid #c2a470" }}
               >
                 SZOLGÁLTATÁSOK
               </Link>
-               <Link
+              <Link
                 href="/galery"
                 className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", padding: "15px 10px", borderBottom: "1px solid #c2a470" }}
               >
                 GALÉRIA
               </Link>
-               <Link
+              <Link
                 href="/myself"
                 className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", padding: "15px 10px", borderBottom: "1px solid #c2a470" }}
               >
                 MAGAMRÓL
               </Link>
+              {/*
               <Link
                 href="/idopontfoglalas"
                 className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", padding: "15px 10px", borderBottom: "1px solid #c2a470" }}
               >
                 IDŐPONTFOGLALÁS
-              </Link>
+              </Link>*/}
               <Link
                 href="/review"
                 className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", padding: "15px 10px", borderBottom: "1px solid #c2a470" }}
               >
                 VÉLEMÉNYEK
               </Link>
@@ -169,7 +177,7 @@ export default function Navbar() {
                 href="/elerhetoseg"
                 className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", padding: "15px 10px", borderBottom: "1px solid #c2a470" }}
               >
                 ELÉRHETŐSÉG
               </Link>

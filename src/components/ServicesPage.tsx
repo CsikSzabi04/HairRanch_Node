@@ -25,24 +25,24 @@ const services2 = [
   {
     name: "Női hajvágás (rövid)",
     price: "5.000 Ft-tól",
-    image: "https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/477230735_2360262461004155_8325254489929382247_n.jpg?stp=c448.0.1152.1152a_dst-jpg_s206x206_tt6&_nc_cat=100&ccb=1-7&_nc_sid=50ad20&_nc_ohc=8JicMu10t2gQ7kNvwF77tv4&_nc_oc=Adlg9LMgnIggouim8b3HuLpoy6X2c2_IO1eTQiQUKr4G27z6Ed3M0M84DKgI4xMgDaw&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=uBwjSlK9p6TtwMNv-NC_2A&oh=00_AfNCkNViRUdT7sdyNQqSByKTw2JSn0xFKddkvPVU6kW2VQ&oe=6864B8D2",
+    image: "l.jpg",
   },
   {
     name: "Női hajvágás (long)",
     price: "10.000 Ft-tól",
-    image: "https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/481028885_2367045640325837_615872305798432831_n.jpg?stp=c256.0.1536.1536a_dst-jpg_s206x206_tt6&_nc_cat=103&ccb=1-7&_nc_sid=50ad20&_nc_ohc=4Q91bXMkoCAQ7kNvwFPtBzu&_nc_oc=AdnIICfQLA7O8y3KfkscpdQWt2Yyt8jUfITl7-eEeO7LSbDnZAaDBZAP7tP6uKrTfqc&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=ttvO-vN8U2UxSM0SwUCvxQ&oh=00_AfOhoClJhtG1coYe3akRR3drJ8cfCqGxVTmKqhfAzzTaKw&oe=6864BA09",
+    image: "sz.jpg",
   },
   {
     name: "Női hajfestés",
     price: "8.000 Ft-tól",
-    image: "https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/480321193_2363125980717803_2864059631123242665_n.jpg?stp=c341.0.1366.1366a_dst-jpg_s206x206_tt6&_nc_cat=109&ccb=1-7&_nc_sid=50ad20&_nc_ohc=vhHqEoWtF30Q7kNvwGF7lc7&_nc_oc=AdkBU36MMt2DBlZka9P2T1jB701rlUv9ji_tbopgo49QmqIvvDvVI5eeuqOMm9kAuRY&_nc_zt=23&_nc_ht=scontent-vie1-1.xx&_nc_gid=uBwjSlK9p6TtwMNv-NC_2A&oh=00_AfNISCNYdh4SjLt8-weY2_q8PI8wjXRQaHsaPRR8vaRvvg&oe=6864BB1E",
+    image: "szl.jpg",
   },
 ];
 
 export default function ServicesPage() {
   const backgroundImages = [
-    'https://scontent-prg1-1.xx.fbcdn.net/v/t1.6435-9/61168545_848334278863655_7226516585597370368_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=YS-D7IceLIcQ7kNvwH8WRmY&_nc_oc=AdmK215SoxulP83rQ_peTTQmhGpKsuNPhRwmJyNhiYDKvwhwlRPKWlqgG39iB7G3yK4&_nc_zt=23&_nc_ht=scontent-prg1-1.xx&_nc_gid=wB3wksrr4OhcPMrIqMXJpw&oh=00_AfPlejuKhN73bMW_NiWnr-ZOoHa90Kx4we5JW42CM0D9SA&oe=6882930F',
-    'https://scontent-prg1-1.xx.fbcdn.net/v/t39.30808-6/484242950_979632764272025_8084441688912964990_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=_V75gj7-zgYQ7kNvwHulHKP&_nc_oc=AdksxEv4BtQmGw0Peps_fs7Oj8iucAlQwXzneF6MEIjip3e0m953VpDsJTwm1wyx_M0&_nc_zt=23&_nc_ht=scontent-prg1-1.xx&_nc_gid=R6fiqCvQ0MDIMGEHjsrL9A&oh=00_AfOCt7uBvU7ZbxeknZ7G6S2LlkDGbD5Xxs87IFzmMSx7GA&oe=6860BD6B',
+          'berti3.jpg',
+          'bg.png'  
   ];
 
   const [currentBg, setCurrentBg] = useState(0);
