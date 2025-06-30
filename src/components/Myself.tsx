@@ -18,10 +18,10 @@ const services = [
 ];
 
 export default function ServicesPage() {
-  const backgroundImages = [
-          'berti3.jpg',
-          'bg.png'  
-  ];
+    const backgroundImages = [
+        'berti3.jpg',
+        'bg.png'
+    ];
     const [currentBg, setCurrentBg] = useState(0);
 
     useEffect(() => {
@@ -44,8 +44,8 @@ export default function ServicesPage() {
                 style={{ backgroundImage: `url(${backgroundImages[currentBg]})` }}
             >
                 {/* Banner */}
-                <div className="w-[90%] flex justify-center">
-                    <div style={{ backgroundImage: 'url("/asd.jpg")', backgroundRepeat: "no-repeat", backgroundSize: "cover", marginTop: "8%" }} id="custom-responsive" className="aaa bg-[#2a2118] border-4 border-[#c2a470] shadow-xl px-6 py-4 transform -rotate-2 w-full sm:w-4/5 md:w-3/5 text-center">
+                <div className="w-[90%] flex justify-center aaa">
+                    <div style={{ backgroundImage: 'url("/asd.jpg")', backgroundRepeat: "no-repeat", backgroundSize: "cover", marginTop: "6%" }} id="custom-responsive" className="aaa bg-[#2a2118] border-4 border-[#c2a470] shadow-xl px-6 py-4 transform -rotate-2 w-full sm:w-4/5 md:w-3/5 text-center">
                         <h2 className="text-2xl sm:text-3xl md:text-5xl text-[#fef8ee] font-bold tracking-wider mb-2 font-serif">
                             Egy kicsit Magamról
                         </h2>
@@ -55,21 +55,20 @@ export default function ServicesPage() {
                     </div>
                 </div>
 
-                {/* Services Carousel */}
-                <div className="w-full overflow-x-auto scrollbar-hide whitespace-nowrap" style={{ marginTop: "4%" }}>
-                    {/* Szolgáltatások - görgethető sor */}
-                    <div className="flex gap-6  justify-center w-max mx-auto px-2">
+                <div className="w-[80%] flex flex-col items-center justify-center" style={{ marginTop: "4%" }}>
+                    {/* Szolgáltatások - responsive wrap with fixed sizes */}
+                    <div className="flex flex-wrap justify-center gap-6 w-[80%] px-4 max-w-7xl">
                         {services.map((service, index) => (
                             <div
                                 key={index}
-                                className="min-w-[240px] max-w-[300px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
+                                className="min-w-[240px] max-w-[300px] w-full sm:w-[260px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
                             >
                                 <img
                                     src={service.image}
                                     alt={service.name}
                                     className="w-full h-52 object-cover"
                                 />
-                                <div className="p-4 text-center" style={{ width: "300px" }}>
+                                <div className="p-4 text-center">
                                     <h3 className="text-lg md:text-xl text-white font-serif mb-1 tracking-wide text-[#d6b981]">
                                         {service.name} <br />
                                         {service.namess}
@@ -80,26 +79,31 @@ export default function ServicesPage() {
                         ))}
                     </div>
 
-                    {/* Videó és képek - görgethető sor */}
-                    <div className="overflow-x-auto whitespace-nowrap scrollbar-hide w-full mt-10" style={{
-                        marginTop: "4%",
-                        scrollbarWidth: "none",           // Firefox
-                        msOverflowStyle: "none",          // IE and Edge
-                        overflowX: "auto"
-                    }}>
-                        <div className="flex gap-4  justify-center w-max mx-auto px-2" >
+                    {/* Videó és képek - responsive layout */}
+                    <div
+                        className="w-full mt-10 px-4"
+                        style={{
+                            marginTop: "2%",
+                        }}
+                    >
+                        <div className="flex flex-col min-[750px]:flex-row gap-4 items-center justify-center">
+                            {/* Image 1 */}
                             <img
                                 src="berti5.png"
                                 className="w-[200px] h-[280px] object-cover rounded-md shadow-md"
                                 alt="Berti left"
                             />
+
+                            {/* Video: hidden below 900px */}
                             <video
                                 src="video.mp4"
                                 controls
-                                className="rounded-lg shadow-lg max-w-full w-[22%] sm:w-[600px]"
+                                className="hidden min-[750px]:block rounded-lg shadow-lg w-[200px]"
                             >
                                 Your browser does not support the video tag.
                             </video>
+
+                            {/* Image 2 */}
                             <img
                                 src="berti2.png"
                                 className="w-[200px] h-[280px] object-cover rounded-md shadow-md"
@@ -108,6 +112,8 @@ export default function ServicesPage() {
                         </div>
                     </div>
                 </div>
+
+
 
 
                 <div className="overflow-x-auto whitespace-nowrap scrollbar-hide w-[90%]" style={{ marginTop: "1%", marginBottom: "3%" }}>

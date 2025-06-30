@@ -164,7 +164,7 @@ export default function Navbar() {
                 style={{ textDecoration: "none", padding: "15px 10px", borderBottom: "1px solid #c2a470" }}
               >
                 IDŐPONTFOGLALÁS
-              </Link>*/}
+              </Link>
               <Link
                 href="/review"
                 className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"
@@ -172,7 +172,7 @@ export default function Navbar() {
                 style={{ textDecoration: "none", padding: "15px 10px", borderBottom: "1px solid #c2a470" }}
               >
                 VÉLEMÉNYEK
-              </Link>
+              </Link>*/}
               <Link
                 href="/elerhetoseg"
                 className="px-6 py-3 text-[#c2a470] hover:bg-[#a67c52] hover:text-white transition-colors uppercase tracking-wide font-semibold"

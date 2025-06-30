@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import "./components.css"
+
   const backgroundImages = [
           'berti3.jpg',
           'bg.png'  
@@ -24,7 +25,7 @@ export default function ContactPage() {
       >
         {/* Header */}
         <div className="w-[85%] max-w-4xl text-center mb-10 aaa" style={{ marginTop: "8%" }}>
-          <div style={{ backgroundImage: 'url("/asd.jpg")', backgroundRepeat: "no-repeat", backgroundSize: "cover" }} className="bg-[#2a2118] border-4 border-[#c2a470] px-6 py-4 transform -rotate-1 shadow-xl">
+          <div style={{ backgroundImage: 'url("/asd.jpg")', backgroundRepeat: "no-repeat", backgroundSize: "cover" }} className="aaa bg-[#2a2118] border-4 border-[#c2a470] px-6 py-4 transform -rotate-1 shadow-xl">
             <h2 className="text-3xl md:text-5xl font-serif text-[#fef8ee] font-bold tracking-wider">
               ELÉRHETŐSÉG
             </h2>
@@ -32,7 +33,7 @@ export default function ContactPage() {
         </div>
 
         {/* Content Section */}
-        <div className="grid md:grid-cols-2 gap-8 w-[85%] max-w-6xl px-4" style={{ marginTop: "3%", marginLeft: "0%" }}>
+        <div className="grid md:grid-cols-2 gap-8 w-[85%] max-w-6xl px-4 aaa" style={{ marginTop: "3%", marginLeft: "0%" }}>
           {/* Contact Info */}
           <div className="bg-[#1f1a17]/90 border-2 border-[#c2a470] rounded-2xl p-8 md:p-10 shadow-2xl text-[#fef8ee] space-y-8">
             <h3 className="text-3xl md:text-4xl font-serif font-bold text-center border-b border-[#c2a470]/50 pb-4">

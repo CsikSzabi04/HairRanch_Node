@@ -152,7 +152,7 @@ export default function Gallery() {
         style={{ backgroundImage: `url(${backgroundImages[currentBg]})` }}
       >
         {/* Header */}
-        <div className="w-[80%] flex justify-center mt-[4%]">
+        <div className="w-[80%] flex justify-center mt-[4%] aaa">
           <div
             className="bg-[#2a2118] border-4 border-[#c2a470] shadow-xl px-6 py-4 transform rotate-2 w-full sm:w-4/5 md:w-3/5 text-center aaa"
             style={{

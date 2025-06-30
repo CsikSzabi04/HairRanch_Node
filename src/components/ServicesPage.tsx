@@ -67,7 +67,7 @@ export default function ServicesPage() {
               backgroundImage: 'url("/asd.jpg")',  
               backgroundRepeat: "no-repeat", 
               backgroundSize: "cover",
-              marginTop: "8%" 
+              marginTop: "6%" 
             }} 
             id="custom-responsive"  
             className="bg-[#2a2118] border-4 border-[#c2a470] shadow-xl px-6 py-4 transform -rotate-2 w-full sm:w-4/5 md:w-3/5 text-center"
