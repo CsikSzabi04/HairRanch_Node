@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Hair Ranch',
   description: 'Hair Ranch - Barbershop Kecskemétem - "Ahol minden férfi és nő, legjobb stílusban távozik"',
   verification: {
-    google: '161OSjPYsB7qQC_ZA8tR_-FYrCGDYRWYVwxh_gq-1rc'
+    google: 'LTPUXJBvz_BkBtBucV3HYGCLwDpNPY0hdIziP76PLhI'
   },
    icons: {
     icon: [
