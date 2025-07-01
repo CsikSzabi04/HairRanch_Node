@@ -16,7 +16,7 @@ export default function Navbar() {
       }}
     >
       <div className="mx-auto px-4">
-        <div className="relative flex items-center w-full" style={{ justifyContent: "center", maxHeight: "80px" }}>
+        <div className="relative flex items-center w-full justify-center" style={{ maxHeight: "80px" }}>
           {/* Bal oldal - Főoldal és Szolgáltatások */}
           <div className="hidden min-[950px]:flex gap-1" style={{ borderBottom: "1px solid #c2a470" }}>
             <Link
@@ -47,19 +47,41 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Logo - Középen */}
-          <Link
-            href="/"
-            className="flex items-center"
-            style={{ marginLeft: "1%", marginRight: "0%", paddingLeft: "1%", paddingRight: "0%", }}
-          >
-            <img
-              src="/hairranch.png"
-              alt="Hair Ranch Logo"
-              style={{ textDecoration: "none", margin: "10px 0px" }}
-              className="h-[50%] w-[75%] rounded-full border-2 border-[#a67c52]"
-            />
-          </Link>
+          {/* Center/Responsive: Logo + Hamburger button container */}
+          <div className="flex w-full min-[950px]:w-[13%] justify-center items-center px-2" style={{ margin: "0px 20px" }}>
+
+            {/* Logo - Left on mobile */}
+            <Link
+              href="/"
+              className="flex items-center justify-start flex-1 min-[950px]:justify-center"
+              style={{ marginLeft: "1%", marginRight: "0%", paddingLeft: "1%", paddingRight: "0%" }}
+            >
+              <img
+                src="/hairranch.png"
+                alt="Hair Ranch Logo"
+                style={{ textDecoration: "none", margin: "10px 0px" }}
+                className="w-[50%] h-[50%] rounded-full border-2 border-[#a67c52] min-[300px]:w-[40%] min-[300px]:h-[40%] min-[650px]:w-[20%] min-[650px]:h-[20%] min-[950px]:w-[80%] min-[950px]:h-[20%]"
+
+
+              />
+            </Link>
+
+            {/* Hamburger Button - Right on mobile */}
+            <button
+              className="min-[950px]:hidden text-4xl px-4 flex justify-center"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Menü megnyitása"
+              style={{
+                backgroundColor: "#c2a470",
+                opacity: "0.9",
+                padding: "5px 8px",
+                cursor: "pointer",
+                width: "50px"
+              }}
+            >
+              <span style={{ fontSize: "11pt" }}>☰</span>
+            </button>
+          </div>
 
           {/* Jobb oldal - Galéria és Elérhetőség */}
           <div className="hidden min-[950px]:flex gap-1" style={{ borderBottom: "1px solid #c2a470" }}>
@@ -93,28 +115,14 @@ export default function Navbar() {
               SZABÁLYOK
             </Link>
           </div>
-
-          {/* Mobil hamburger ikon */}
-          <button
-            className="min-[950px]:hidden text-4xl px-4"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Menü megnyitása"
-            style={{
-              backgroundColor: "#c2a470",
-              opacity: "0.9",
-              padding: "5px 8px",
-              cursor: "pointer"
-            }}
-          >
-            <span style={{ fontSize: "11pt" }}>☰</span>
-          </button>
         </div>
+
 
         {/* Mobile Menu - appears when hamburger is clicked (below 900px) */}
         {mobileMenuOpen && (
           <div
             style={{
-              marginTop: "9%",
+              marginTop: "3%",
               maxHeight: "180px",
               overflowY: "scroll",
               scrollbarWidth: "none",         // Firefox
