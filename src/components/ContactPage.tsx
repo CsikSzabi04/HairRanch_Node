@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import "./components.css"
+import { motion, AnimatePresence } from 'framer-motion'
 
   const backgroundImages = [
           'berti3.jpg',
@@ -18,11 +19,20 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <div className="overflow-hidden font-['Rye']">
+     <div className="overflow-hidden font-['Rye']">
+      {/* Background wrapper - NO animation here */}
       <section
-        className="min-h-screen bg-cover bg-center bg-fixed bg-blend-overlay bg-[#1e1a14]/80 flex flex-col items-center justify-center px-4 py-20 text-white transition-all duration-1000"
+        className="min-h-screen bg-cover bg-center bg-fixed bg-blend-overlay bg-[#1e1a14]/80 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 pt-10 space-y-10 text-white transition-all duration-1000"
         style={{ backgroundImage: `url(${backgroundImages[currentBg]})` }}
       >
+        {/* Animated content wrapper */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -30 }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center justify-center w-full"
+        >
         {/* Header */}
         <div className="w-[85%] max-w-4xl text-center mb-10 aaa" style={{ marginTop: "8%" }}>
           <div style={{ backgroundImage: 'url("/asd.jpg")', backgroundRepeat: "no-repeat", backgroundSize: "cover" }} className="aaa bg-[#2a2118] border-4 border-[#c2a470] px-6 py-4 transform -rotate-1 shadow-xl">
@@ -99,6 +109,7 @@ export default function ContactPage() {
             />
           </div>
         </div>
+        </motion.div>
       </section>
     </div>
   );

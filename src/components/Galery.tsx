@@ -2,13 +2,14 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import './components.css'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Gallery() {
   const backgroundImages = [
     '3.jpg',
     '4.jpg',
     '5.jpg',
-     '1.jpg',
+    '1.jpg',
     '2.jpg',
     '6.jpg',
     '7.jpg',
@@ -26,27 +27,27 @@ export default function Gallery() {
     'ferfi.jpg',
     'ferfi3.jpg',
     'ferfi4.jpg',
-    ];
+  ];
 
   const backgroundImages3 = [
-   '9.jpg',  
-   '10.jpg',  
-   '12.jpg',  
-   '13.jpg',  
-   '14.jpg',  
-   '15.jpg',  
-   '16.jpg',  
-   '17.jpg',  
-   '18.jpg',  
-   '19.jpg',  
-   '20.jpg',  
-   '21.jpg',  
-   '22.jpg',  
-   '23.jpg',  
-   '24.jpg',  
-   '25.jpg',  
-   '26.jpg',  
-   '5.jpg',  
+    '9.jpg',
+    '10.jpg',
+    '12.jpg',
+    '13.jpg',
+    '14.jpg',
+    '15.jpg',
+    '16.jpg',
+    '17.jpg',
+    '18.jpg',
+    '19.jpg',
+    '20.jpg',
+    '21.jpg',
+    '22.jpg',
+    '23.jpg',
+    '24.jpg',
+    '25.jpg',
+    '26.jpg',
+    '5.jpg',
 
   ]
 
@@ -147,123 +148,132 @@ export default function Gallery() {
 
   return (
     <div className="overflow-hidden font-['Rye']">
+      {/* Background wrapper - NO animation here */}
       <section
         className="min-h-screen bg-cover bg-center bg-fixed bg-blend-overlay bg-[#1e1a14]/80 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 pt-10 space-y-10 text-white transition-all duration-1000"
         style={{ backgroundImage: `url(${backgroundImages[currentBg]})` }}
       >
-        {/* Header */}
-        <div className="w-[80%] flex justify-center mt-[4%] aaa">
-          <div
-            className="bg-[#2a2118] border-4 border-[#c2a470] shadow-xl px-6 py-4 transform rotate-2 w-full sm:w-4/5 md:w-3/5 text-center aaa"
-            style={{
-              backgroundImage: 'url("/asd.jpg")',
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              marginTop: "5%",
-              marginBottom: "2%"
-            }}
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-5xl text-[#fef8ee] font-bold tracking-wider mb-2 font-serif">
-              Galéria
-            </h2>
-            <p className="text-[#e6d3b3] italic text-sm md:text-lg font-light">
-              Nem mindig a harsány a feltűnő. <br />
-              A legnagyobb változás néha csendben történik, csak hagyni kell, hogy a fény elvégezze a dolgát.
-            </p>
-          </div>
-        </div>
-
-        {/* Second Gallery */}
-        <div className="relative w-[90%] mb-10" style={{ marginBottom: "10px", marginTop: "1%" }}>
-          <div
-            ref={scrollContainerRef2}
-            style={{ marginBottom: "10px", marginTop: "2%" }}
-            className="overflow-x-auto whitespace-nowrap scrollbar-hide cursor-grab active:cursor-grabbing"
-            onMouseDown={handleMouseDown2}
-            onMouseLeave={handleMouseLeave2}
-            onMouseUp={handleMouseUp2}
-            onMouseMove={handleMouseMove2}
-            onTouchStart={handleTouchStart2}
-            onTouchMove={handleTouchMove2}
-            onTouchEnd={handleMouseUp2}
-          >
-            <div className="flex gap-6 justify-center w-max mx-auto px-2">
-              {backgroundImages2.map((img, index) => (
-                <div
-                  key={index}
-                  style={{ marginBottom: "10px", marginLeft: "5px" }}
-                  className="w-[340px] max-w-[400px] max-h-[370px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex-shrink-0"
-                >
-                  <img
-                    src={img}
-                    alt={`Gallery2 ${index + 1}`}
-                    width={400}
-                    height={370}
-                    className="w-full h-full object-cover pointer-events-none"
-                  />
-                </div>
-              ))}
+        {/* Animated content wrapper */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -30 }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center justify-center w-full"
+        >
+          {/* Header */}
+          <div className="w-[80%] flex justify-center mt-[4%] aaa">
+            <div
+              className="bg-[#2a2118] border-4 border-[#c2a470] shadow-xl px-6 py-4 transform rotate-2 w-full sm:w-4/5 md:w-3/5 text-center aaa"
+              style={{
+                backgroundImage: 'url("/asd.jpg")',
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                marginTop: "5%",
+                marginBottom: "2%"
+              }}
+            >
+              <h2 className="text-2xl sm:text-3xl md:text-5xl text-[#fef8ee] font-bold tracking-wider mb-2 font-serif">
+                Galéria
+              </h2>
+              <p className="text-[#e6d3b3] italic text-sm md:text-lg font-light">
+                Nem mindig a harsány a feltűnő. <br />
+                A legnagyobb változás néha csendben történik, csak hagyni kell, hogy a fény elvégezze a dolgát.
+              </p>
             </div>
           </div>
-        </div>
 
-        {/* First Gallery */}
-        <div className="relative w-[90%] mx-auto" style={{ marginBottom: "10px", marginTop: "1%" }}>
-          <div
-            ref={scrollContainerRef}
-            style={{ marginBottom: "10px", marginTop: "2%" }}
-            className="overflow-x-auto whitespace-nowrap scrollbar-hide cursor-grab active:cursor-grabbing"
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleMouseUp}
-          >
-            <div className="flex gap-6 justify-center w-max mx-auto px-2">
-              {backgroundImages.map((img, index) => (
-                <div
-                  key={index}
-                  style={{ marginBottom: "10px", marginLeft: "10px" }}
-                  className="w-[340px] max-w-[400px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex-shrink-0"
-                >
-                  <img
-                    src={img}
-                    alt={`Gallery ${index + 1}`}
-                    width={400}
-                    height={400}
-                    className="w-full h-full object-cover pointer-events-none"
-                  />
-                </div>
-              ))}
+          {/* Second Gallery */}
+          <div className="relative w-[90%] mb-10" style={{ marginBottom: "10px", marginTop: "1%" }}>
+            <div
+              ref={scrollContainerRef2}
+              style={{ marginBottom: "10px", marginTop: "2%" }}
+              className="overflow-x-auto whitespace-nowrap scrollbar-hide cursor-grab active:cursor-grabbing"
+              onMouseDown={handleMouseDown2}
+              onMouseLeave={handleMouseLeave2}
+              onMouseUp={handleMouseUp2}
+              onMouseMove={handleMouseMove2}
+              onTouchStart={handleTouchStart2}
+              onTouchMove={handleTouchMove2}
+              onTouchEnd={handleMouseUp2}
+            >
+              <div className="flex gap-6 justify-center w-max mx-auto px-2">
+                {backgroundImages2.map((img, index) => (
+                  <div
+                    key={index}
+                    style={{ marginBottom: "10px", marginLeft: "5px" }}
+                    className="w-[340px] max-w-[400px] max-h-[370px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex-shrink-0"
+                  >
+                    <img
+                      src={img}
+                      alt={`Gallery2 ${index + 1}`}
+                      width={400}
+                      height={370}
+                      className="w-full h-full object-cover pointer-events-none"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Third Gallery */}
-        <div className="w-[85%] mx-auto mb-10" style={{ marginTop: "2%", marginBottom: "2%" }}>
-          <div>
-            <div className="image-scroll-container flex flex-wrap gap-6 justify-start">
-              {backgroundImages3.map((img, index) => (
-                <div
-                  key={index}
-                  className="w-[240px] max-w-[300px] max-h-[270px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
-                  style={{ marginBottom: "1%", marginLeft: "1%" }}
-                >
-                  <img
-                    src={img}
-                    alt={`Gallery2 ${index + 1}`}
-                    width={300}
-                    height={270}
-                    className="w-full h-full object-cover pointer-events-none"
-                  />
-                </div>
-              ))}
+          {/* First Gallery */}
+          <div className="relative w-[90%] mx-auto" style={{ marginBottom: "10px", marginTop: "1%" }}>
+            <div
+              ref={scrollContainerRef}
+              style={{ marginBottom: "10px", marginTop: "2%" }}
+              className="overflow-x-auto whitespace-nowrap scrollbar-hide cursor-grab active:cursor-grabbing"
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleMouseUp}
+            >
+              <div className="flex gap-6 justify-center w-max mx-auto px-2">
+                {backgroundImages.map((img, index) => (
+                  <div
+                    key={index}
+                    style={{ marginBottom: "10px", marginLeft: "10px" }}
+                    className="w-[340px] max-w-[400px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex-shrink-0"
+                  >
+                    <img
+                      src={img}
+                      alt={`Gallery ${index + 1}`}
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover pointer-events-none"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
 
+          {/* Third Gallery */}
+          <div className="w-[85%] mx-auto mb-10" style={{ marginTop: "2%", marginBottom: "2%" }}>
+            <div>
+              <div className="image-scroll-container flex flex-wrap gap-6 justify-start">
+                {backgroundImages3.map((img, index) => (
+                  <div
+                    key={index}
+                    className="w-[240px] max-w-[300px] max-h-[270px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
+                    style={{ marginBottom: "1%", marginLeft: "1%" }}
+                  >
+                    <img
+                      src={img}
+                      alt={`Gallery2 ${index + 1}`}
+                      width={300}
+                      height={270}
+                      className="w-full h-full object-cover pointer-events-none"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
     </div>
   );
