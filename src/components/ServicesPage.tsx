@@ -15,26 +15,26 @@ const services = [
     image: "/ferfi2.png",
   },
   {
-    name: "Női hajvágás",
-    price: "8.000 Ft-tól",
-    image: "/noi2.jpg",
+    name: "Férfi hajfestés",
+    price: "? Ft-tól",
+    image: "/ferfi.jpg",
   },
 ];
 
 const services2 = [
   {
     name: "Női hajvágás (rövid)",
-    price: "5.000 Ft-tól",
+    price: "? Ft-tól",
     image: "l.jpg",
   },
   {
     name: "Női hajvágás (long)",
-    price: "10.000 Ft-tól",
+    price: "? Ft-tól",
     image: "sz.jpg",
   },
   {
     name: "Női hajfestés",
-    price: "8.000 Ft-tól",
+    price: "? Ft-tól",
     image: "szl.jpg",
   },
 ];
