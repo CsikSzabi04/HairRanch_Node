@@ -39,22 +39,66 @@ export const metadata: Metadata = {
   },
 }
 
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="hu">
-      <head>
-        <link id="rel" rel="icon" type="image/png" href="roundd.png" />
-      </head>
+    <html lang="en">
+
+      <link id="rel" rel="icon" type="image/png" href="roundd.png" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Hair Ranch",
+            "image": "https://hairranch.hu/roundd.png",
+            "@id": "https://hairranch.hu",
+            "url": "https://hairranch.hu",
+            "telephone": "+36-XX-XXX-XXXX", // your phone number here
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Your Street Address",
+              "addressLocality": "Kecskemét",
+              "postalCode": "6000",
+              "addressCountry": "HU"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 46.918247084813586, 
+              "longitude": 19.672797711643252
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+                ],
+                "opens": "09:00",
+                "closes": "19:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeekEnd": [
+                  "Saturday",
+                ],
+                "opens": "08:00",
+                "closes": "12:00"
+              }
+            ],
+            "sameAs": [
+              "https://www.facebook.com/bartalbertold",
+              "https://www.instagram.com/bartalbertold_hairranch/"
+            ]
+          }),
+        }}
+      />
+
       <body className="bg-[#fef8ee] text-[#3b2f23] font-sans min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>
