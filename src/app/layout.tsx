@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   // Adding openGraph and twitter cards is great for social & SEO too:
   openGraph: {
     title: 'Hair Ranch - Kecskemét Fodrász',
-    description: 'Prémium fodrász és barber szolgáltatások Kecskeméten a Hair Ranch-nál.',
+    description: 'Prémium fodrász szolgáltatások Kecskeméten a Hair Ranch-nál.',
     url: 'https://hairranch.hu',
     siteName: 'Hair Ranch',
     images: [
