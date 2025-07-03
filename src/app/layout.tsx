@@ -6,8 +6,8 @@ import Footer from '../components/Footer'
 import AnimatedPageWrapper from '../components/AnimatedPageWrapper'
 
 export const metadata: Metadata = {
-  title: 'Hair Ranch - Kecskemét Fodrász & Barbershop',
-  description: 'Hair Ranch Kecskemét – Fodrász és Barbershop, ahol minden férfi és nő a legjobb stílusban távozik. Profi hajvágás, styling, és prémium szolgáltatások.',
+  title: 'Hair Ranch - Kecskemét Fodrász ',
+  description: 'Hair Ranch Kecskemét – Fodrász, ahol minden férfi és nő a legjobb stílusban távozik. Profi hajvágás, styling, és prémium szolgáltatások.',
   verification: {
     google: 'LTPUXJBvz_BkBtBucV3HYGCLwDpNPY0hdIziP76PLhI'
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   // Adding openGraph and twitter cards is great for social & SEO too:
   openGraph: {
-    title: 'Hair Ranch - Kecskemét Fodrász & Barbershop',
+    title: 'Hair Ranch - Kecskemét Fodrász',
     description: 'Prémium fodrász és barber szolgáltatások Kecskeméten a Hair Ranch-nál.',
     url: 'https://hairranch.hu',
     siteName: 'Hair Ranch',
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hair Ranch - Kecskemét Fodrász & Barbershop',
-    description: 'Prémium fodrász és barber szolgáltatások Kecskeméten a Hair Ranch-nál.',
+    title: 'Hair Ranch - Kecskemét Fodrász',
+    description: 'Prémium fodrász szolgáltatások Kecskeméten a Hair Ranch-nál.',
     images: ['https://hairranch.hu/roundd.png'],
   },
 }
