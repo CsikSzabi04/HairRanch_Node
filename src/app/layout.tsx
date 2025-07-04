@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: 'Hair Ranch',
     images: [
       {
-        url: 'https://hairranch.hu/roundd.png',
+        url: '/roundd.png',
         width: 800,
         height: 600,
         alt: 'Hair Ranch Logo',
@@ -56,8 +56,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@id": "https://hairranch.hu",
               "url": "https://hairranch.hu",
               "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Your Street Address",
+                "@type": "6000",
+                "streetAddress": "Kecskemét Március 15 utca 68",
                 "addressLocality": "Kecskemét",
                 "postalCode": "6000",
                 "addressCountry": "hu_HU"
