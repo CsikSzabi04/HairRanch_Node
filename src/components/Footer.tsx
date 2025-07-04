@@ -64,7 +64,7 @@ export default function Footer() {
         <div className="pt-6 border-t border-[#3b2f23] text-center text-sm text-[#a67c52]">
           <p>
             &copy; {new Date().getFullYear()} Hair Ranch |
-            Készítette: <a href="https://csszabj.netlify.app/" className="text-[#d4a373]" target="_blank" rel="noopener noreferrer">Csík Szabolcs</a>
+            Készítette: <a href="https://csszabj.hu" className="text-[#d4a373]" target="_blank" rel="noopener noreferrer">Csík Szabolcs</a>
           </p>
         </div>
       </div>
