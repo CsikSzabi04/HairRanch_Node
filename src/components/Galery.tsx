@@ -48,10 +48,10 @@ export default function Gallery() {
     '25.jpg',
     '26.jpg',
     '5.jpg',
-
-  ]
+  ];
 
   const [currentBg, setCurrentBg] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef2 = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -65,90 +65,105 @@ export default function Gallery() {
     const interval = setInterval(() => {
       setCurrentBg((prev) => (prev + 1) % backgroundImages.length);
     }, 60000);
-    return () => clearInterval(interval);
+
+    // Set initial window width
+    setWindowWidth(window.innerWidth);
+
+    // Add resize listener
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
+
+  // Only enable drag functionality for screens wider than 1000px
+  const isMobileView = windowWidth <= 1000;
 
   // Drag handlers for first gallery
   const handleMouseDown = (e: React.MouseEvent) => {
+    if (isMobileView) return;
     setIsDragging(true);
     setStartX(e.pageX - (scrollContainerRef.current?.offsetLeft || 0));
     setScrollLeft(scrollContainerRef.current?.scrollLeft || 0);
   };
 
-  const handleMouseUp = () => setIsDragging(false);
-  const handleMouseLeave = () => setIsDragging(false);
+  const handleMouseUp = () => {
+    if (isMobileView) return;
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    if (isMobileView) return;
+    setIsDragging(false);
+  };
+
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollContainerRef.current) return;
+    if (!isDragging || !scrollContainerRef.current || isMobileView) return;
     e.preventDefault();
     const x = e.pageX - scrollContainerRef.current.offsetLeft;
     scrollContainerRef.current.scrollLeft = scrollLeft - (x - startX) * 2;
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
+    if (isMobileView) return;
     setIsDragging(true);
     setStartX(e.touches[0].pageX - (scrollContainerRef.current?.offsetLeft || 0));
     setScrollLeft(scrollContainerRef.current?.scrollLeft || 0);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging || !scrollContainerRef.current) return;
+    if (!isDragging || !scrollContainerRef.current || isMobileView) return;
     const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
     scrollContainerRef.current.scrollLeft = scrollLeft - (x - startX) * 2;
   };
 
   // Drag handlers for second gallery
   const handleMouseDown2 = (e: React.MouseEvent) => {
+    if (isMobileView) return;
     setIsDragging2(true);
     setStartX2(e.pageX - (scrollContainerRef2.current?.offsetLeft || 0));
     setScrollLeft2(scrollContainerRef2.current?.scrollLeft || 0);
   };
 
-  const handleMouseUp2 = () => setIsDragging2(false);
-  const handleMouseLeave2 = () => setIsDragging2(false);
+  const handleMouseUp2 = () => {
+    if (isMobileView) return;
+    setIsDragging2(false);
+  };
+
+  const handleMouseLeave2 = () => {
+    if (isMobileView) return;
+    setIsDragging2(false);
+  };
+
   const handleMouseMove2 = (e: React.MouseEvent) => {
-    if (!isDragging2 || !scrollContainerRef2.current) return;
+    if (!isDragging2 || !scrollContainerRef2.current || isMobileView) return;
     e.preventDefault();
     const x = e.pageX - scrollContainerRef2.current.offsetLeft;
     scrollContainerRef2.current.scrollLeft = scrollLeft2 - (x - startX2) * 2;
   };
 
   const handleTouchStart2 = (e: React.TouchEvent) => {
+    if (isMobileView) return;
     setIsDragging2(true);
     setStartX2(e.touches[0].pageX - (scrollContainerRef2.current?.offsetLeft || 0));
     setScrollLeft2(scrollContainerRef2.current?.scrollLeft || 0);
   };
 
   const handleTouchMove2 = (e: React.TouchEvent) => {
-    if (!isDragging2 || !scrollContainerRef2.current) return;
+    if (!isDragging2 || !scrollContainerRef2.current || isMobileView) return;
     const x = e.touches[0].pageX - scrollContainerRef2.current.offsetLeft;
     scrollContainerRef2.current.scrollLeft = scrollLeft2 - (x - startX2) * 2;
   };
 
-  // Arrow click handlers
-  const scrollGallery = (direction: number) => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({
-        left: direction * 680,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const scrollGallery2 = (direction: number) => {
-    if (scrollContainerRef2.current) {
-      scrollContainerRef2.current.scrollBy({
-        left: direction * 680,
-        behavior: "smooth",
-      });
-    }
-  };
-
-
-
-
   return (
     <div className="overflow-hidden font-['Rye']">
-      {/* Background wrapper - NO animation here */}
+      {/* Background wrapper */}
       <section
         className="min-h-screen bg-cover bg-center bg-fixed bg-blend-overlay bg-[#1e1a14]/80 flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 pt-10 space-y-10 text-white transition-all duration-1000"
         style={{ backgroundImage: `url(${backgroundImages[currentBg]})` }}
@@ -185,72 +200,111 @@ export default function Gallery() {
 
           {/* Second Gallery */}
           <div className="relative w-[90%] mb-10" style={{ marginBottom: "10px", marginTop: "1%" }}>
-            <div
-              ref={scrollContainerRef2}
-              style={{ marginBottom: "10px", marginTop: "2%" }}
-              className="overflow-x-auto whitespace-nowrap scrollbar-hide cursor-grab active:cursor-grabbing"
-              onMouseDown={handleMouseDown2}
-              onMouseLeave={handleMouseLeave2}
-              onMouseUp={handleMouseUp2}
-              onMouseMove={handleMouseMove2}
-              onTouchStart={handleTouchStart2}
-              onTouchMove={handleTouchMove2}
-              onTouchEnd={handleMouseUp2}
-            >
-              <div className="flex gap-6 justify-center w-max mx-auto px-2">
+            {isMobileView ? (
+              <div className="flex flex-wrap gap-4 justify-center">
                 {backgroundImages2.map((img, index) => (
                   <div
                     key={index}
-                    style={{ marginBottom: "10px", marginLeft: "5px" }}
-                    className="w-[340px] max-w-[400px] max-h-[370px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex-shrink-0"
+                    className="w-[160px] sm:w-[200px] md:w-[240px] max-h-[200px] sm:max-h-[240px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
                   >
                     <img
                       src={img}
                       alt={`Gallery2 ${index + 1}`}
-                      width={400}
-                      height={370}
+                      width={240}
+                      height={240}
                       className="w-full h-full object-cover pointer-events-none"
                     />
                   </div>
                 ))}
               </div>
-            </div>
+            ) : (
+              <div
+                ref={scrollContainerRef2}
+                style={{ marginBottom: "10px", marginTop: "2%" }}
+                className="overflow-x-auto whitespace-nowrap scrollbar-hide cursor-grab active:cursor-grabbing"
+                onMouseDown={handleMouseDown2}
+                onMouseLeave={handleMouseLeave2}
+                onMouseUp={handleMouseUp2}
+                onMouseMove={handleMouseMove2}
+                onTouchStart={handleTouchStart2}
+                onTouchMove={handleTouchMove2}
+                onTouchEnd={handleMouseUp2}
+              >
+                <div className="flex gap-6 justify-center w-max mx-auto px-2">
+                  {backgroundImages2.map((img, index) => (
+                    <div
+                      key={index}
+                      style={{ marginBottom: "10px", marginLeft: "5px" }}
+                      className="w-[340px] max-w-[400px] max-h-[370px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex-shrink-0"
+                    >
+                      <img
+                        src={img}
+                        alt={`Gallery2 ${index + 1}`}
+                        width={400}
+                        height={370}
+                        className="w-full h-full object-cover pointer-events-none"
+                        
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* First Gallery */}
           <div className="relative w-[90%] mx-auto" style={{ marginBottom: "10px", marginTop: "1%" }}>
-            <div
-              ref={scrollContainerRef}
-              style={{ marginBottom: "10px", marginTop: "2%" }}
-              className="overflow-x-auto whitespace-nowrap scrollbar-hide cursor-grab active:cursor-grabbing"
-              onMouseDown={handleMouseDown}
-              onMouseLeave={handleMouseLeave}
-              onMouseUp={handleMouseUp}
-              onMouseMove={handleMouseMove}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleMouseUp}
-            >
-              <div className="flex gap-6 justify-center w-max mx-auto px-2">
+            {isMobileView ? (
+              <div className="flex flex-wrap gap-4 justify-center">
                 {backgroundImages.map((img, index) => (
                   <div
                     key={index}
-                    style={{ marginBottom: "10px", marginLeft: "10px" }}
-                    className="w-[340px] max-w-[400px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex-shrink-0"
+                    className="w-[160px] sm:w-[200px] md:w-[240px] max-h-[200px] sm:max-h-[240px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
                   >
                     <img
                       src={img}
                       alt={`Gallery ${index + 1}`}
-                      width={400}
-                      height={400}
+                      width={240}
+                      height={240}
                       className="w-full h-full object-cover pointer-events-none"
                     />
                   </div>
                 ))}
               </div>
-            </div>
+            ) : (
+              <div
+                ref={scrollContainerRef}
+                style={{ marginBottom: "10px", marginTop: "2%" }}
+                className="overflow-x-auto whitespace-nowrap scrollbar-hide cursor-grab active:cursor-grabbing"
+                onMouseDown={handleMouseDown}
+                onMouseLeave={handleMouseLeave}
+                onMouseUp={handleMouseUp}
+                onMouseMove={handleMouseMove}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleMouseUp}
+              >
+                <div className="flex gap-6 justify-center w-max mx-auto px-2">
+                  {backgroundImages.map((img, index) => (
+                    <div
+                      key={index}
+                      style={{ marginBottom: "10px", marginLeft: "10px" }}
+                      className="w-[340px] max-w-[400px] bg-[#1f1a17] border border-[#c2a470] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex-shrink-0"
+                    >
+                      <img
+                        src={img}
+                        alt={`Gallery ${index + 1}`}
+                        width={400}
+                        height={400}
+                        className="w-full h-full object-cover pointer-events-none"
+                       
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
-
           {/* Third Gallery */}
           <div className="w-[85%] mx-auto mb-10" style={{ marginTop: "2%", marginBottom: "2%" }}>
             <div>
