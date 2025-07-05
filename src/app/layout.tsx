@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: 'Hair Ranch',
     images: [
       {
-        url: '/roundd.png',
+        url: 'https://hairranch.hu/roundd.png',
         width: 800,
         height: 600,
         alt: 'Hair Ranch Logo',
@@ -45,6 +45,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="hu">
       <head>
         <link id="rel" rel="icon" type="image/png" href="roundd.png" />
+        {/* SEO és Social meta tagok */}
+        <meta property="og:image" content="https://hairranch.hu/roundd.png" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
+        <meta name="twitter:image" content="https://hairranch.hu/roundd.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
