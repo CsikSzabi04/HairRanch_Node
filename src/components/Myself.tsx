@@ -75,7 +75,7 @@ export default function ServicesPage() {
                 className="text-[#e6d3b3] italic text-sm md:text-lg font-light"
                 style={{ fontStyle: 'italic' }}
               >
-                "Mert minden egyes hajvágásnak lelke van, nálunk ez életre kel." - Kecskés Bertold
+                "Mert minden egyes hajvágásnak lelke van, nálunk ez életre kel." - Barta Bertold
               </p>
             </div>
           </div>
