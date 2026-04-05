@@ -1,0 +1,18 @@
+/* Custom utilities that aren't easily handled by Tailwind v4 yet or specific overrides */
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.rotate-card {
+  transform: rotate(-2deg);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(194, 164, 112, 0.4);
+}
